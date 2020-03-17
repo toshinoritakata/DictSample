@@ -8,6 +8,7 @@ namespace CGWORLD
     {
         [PrimaryKey]
         public int Id { get; set; }
+        [SecondaryKey(0), NonUnique]
         public string Classification { get; set; }
         public string Name { get; set; }
         public float Size { get; set; }

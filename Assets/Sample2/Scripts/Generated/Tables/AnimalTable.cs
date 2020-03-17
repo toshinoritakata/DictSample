@@ -11,13 +11,18 @@ namespace CGWORLD.Tables
    {
         readonly Func<Animal, int> primaryIndexSelector;
 
+        readonly Animal[] secondaryIndex0;
+        readonly Func<Animal, string> secondaryIndex0Selector;
 
         public AnimalTable(Animal[] sortedData)
             : base(sortedData)
         {
             this.primaryIndexSelector = x => x.Id;
+            this.secondaryIndex0Selector = x => x.Classification;
+            this.secondaryIndex0 = CloneAndSortBy(this.secondaryIndex0Selector, System.StringComparer.Ordinal);
         }
 
+        public RangeView<Animal> SortByClassification => new RangeView<Animal>(secondaryIndex0, 0, secondaryIndex0.Length - 1, true);
 
         [System.Runtime.CompilerServices.MethodImpl(System.Runtime.CompilerServices.MethodImplOptions.AggressiveInlining)]
         public Animal FindById(int key)
@@ -44,6 +49,21 @@ namespace CGWORLD.Tables
         public RangeView<Animal> FindRangeById(int min, int max, bool ascendant = true)
         {
             return FindUniqueRangeCore(data, primaryIndexSelector, System.Collections.Generic.Comparer<int>.Default, min, max, ascendant);
+        }
+
+        public RangeView<Animal> FindByClassification(string key)
+        {
+            return FindManyCore(secondaryIndex0, secondaryIndex0Selector, System.StringComparer.Ordinal, key);
+        }
+
+        public RangeView<Animal> FindClosestByClassification(string key, bool selectLower = true)
+        {
+            return FindManyClosestCore(secondaryIndex0, secondaryIndex0Selector, System.StringComparer.Ordinal, key, selectLower);
+        }
+
+        public RangeView<Animal> FindRangeByClassification(string min, string max, bool ascendant = true)
+        {
+            return FindManyRangeCore(secondaryIndex0, secondaryIndex0Selector, System.StringComparer.Ordinal, min, max, ascendant);
         }
 
     }
