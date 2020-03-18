@@ -2080,7 +2080,7 @@ GameObject:
   - component: {fileID: 1313235279}
   - component: {fileID: 1313235278}
   m_Layer: 5
-  m_Name: Searxh
+  m_Name: Search
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
