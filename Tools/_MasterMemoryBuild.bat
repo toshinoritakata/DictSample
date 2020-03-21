@@ -3,7 +3,7 @@
 set MMGEN="MasterMemory.Generator\win-x64\MasterMemory.Generator.exe"
 set MPC="MessagePackUniversalCodeGenerator\win-x64\mpc.exe"
 set NAME_SPACE=CGWORLD
-set SCRIPT_PATH="..\Assets\Sample2\Scripts"
+set SCRIPT_PATH="..\Assets"
 
 del /S /Q %SCRIPT_PATH%\Generated
 
