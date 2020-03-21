@@ -19,5 +19,17 @@ namespace CGWORLD
             return this;
         }
 
+        public DatabaseBuilder Append(System.Collections.Generic.IEnumerable<Animal2> dataSource)
+        {
+            AppendCore(dataSource, x => x.Id, System.Collections.Generic.Comparer<int>.Default);
+            return this;
+        }
+
+        public DatabaseBuilder Append(System.Collections.Generic.IEnumerable<Classification> dataSource)
+        {
+            AppendCore(dataSource, x => x.Id, System.Collections.Generic.Comparer<int>.Default);
+            return this;
+        }
+
     }
 }

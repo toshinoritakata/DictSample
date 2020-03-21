@@ -27,7 +27,9 @@ namespace CGWORLD
             var newData = CloneAndSortBy(data, x => x.Id, System.Collections.Generic.Comparer<int>.Default);
             var table = new AnimalTable(newData);
             memory = new MemoryDatabase(
-                table
+                table,
+                memory.Animal2Table,
+                memory.ClassificationTable
             
             );
         }
@@ -38,7 +40,9 @@ namespace CGWORLD
             var newData = CloneAndSortBy(data, x => x.Id, System.Collections.Generic.Comparer<int>.Default);
             var table = new AnimalTable(newData);
             memory = new MemoryDatabase(
-                table
+                table,
+                memory.Animal2Table,
+                memory.ClassificationTable
             
             );
         }
@@ -49,6 +53,84 @@ namespace CGWORLD
             var newData = CloneAndSortBy(data, x => x.Id, System.Collections.Generic.Comparer<int>.Default);
             var table = new AnimalTable(newData);
             memory = new MemoryDatabase(
+                table,
+                memory.Animal2Table,
+                memory.ClassificationTable
+            
+            );
+        }
+
+        public void ReplaceAll(System.Collections.Generic.IList<Animal2> data)
+        {
+            var newData = CloneAndSortBy(data, x => x.Id, System.Collections.Generic.Comparer<int>.Default);
+            var table = new Animal2Table(newData);
+            memory = new MemoryDatabase(
+                memory.AnimalTable,
+                table,
+                memory.ClassificationTable
+            
+            );
+        }
+
+        public void RemoveAnimal2(int[] keys)
+        {
+            var data = RemoveCore(memory.Animal2Table.GetRawDataUnsafe(), keys, x => x.Id, System.Collections.Generic.Comparer<int>.Default);
+            var newData = CloneAndSortBy(data, x => x.Id, System.Collections.Generic.Comparer<int>.Default);
+            var table = new Animal2Table(newData);
+            memory = new MemoryDatabase(
+                memory.AnimalTable,
+                table,
+                memory.ClassificationTable
+            
+            );
+        }
+
+        public void Diff(Animal2[] addOrReplaceData)
+        {
+            var data = DiffCore(memory.Animal2Table.GetRawDataUnsafe(), addOrReplaceData, x => x.Id, System.Collections.Generic.Comparer<int>.Default);
+            var newData = CloneAndSortBy(data, x => x.Id, System.Collections.Generic.Comparer<int>.Default);
+            var table = new Animal2Table(newData);
+            memory = new MemoryDatabase(
+                memory.AnimalTable,
+                table,
+                memory.ClassificationTable
+            
+            );
+        }
+
+        public void ReplaceAll(System.Collections.Generic.IList<Classification> data)
+        {
+            var newData = CloneAndSortBy(data, x => x.Id, System.Collections.Generic.Comparer<int>.Default);
+            var table = new ClassificationTable(newData);
+            memory = new MemoryDatabase(
+                memory.AnimalTable,
+                memory.Animal2Table,
+                table
+            
+            );
+        }
+
+        public void RemoveClassification(int[] keys)
+        {
+            var data = RemoveCore(memory.ClassificationTable.GetRawDataUnsafe(), keys, x => x.Id, System.Collections.Generic.Comparer<int>.Default);
+            var newData = CloneAndSortBy(data, x => x.Id, System.Collections.Generic.Comparer<int>.Default);
+            var table = new ClassificationTable(newData);
+            memory = new MemoryDatabase(
+                memory.AnimalTable,
+                memory.Animal2Table,
+                table
+            
+            );
+        }
+
+        public void Diff(Classification[] addOrReplaceData)
+        {
+            var data = DiffCore(memory.ClassificationTable.GetRawDataUnsafe(), addOrReplaceData, x => x.Id, System.Collections.Generic.Comparer<int>.Default);
+            var newData = CloneAndSortBy(data, x => x.Id, System.Collections.Generic.Comparer<int>.Default);
+            var table = new ClassificationTable(newData);
+            memory = new MemoryDatabase(
+                memory.AnimalTable,
+                memory.Animal2Table,
                 table
             
             );

@@ -11,12 +11,18 @@ namespace CGWORLD
    public sealed class MemoryDatabase : MemoryDatabaseBase
    {
         public AnimalTable AnimalTable { get; private set; }
+        public Animal2Table Animal2Table { get; private set; }
+        public ClassificationTable ClassificationTable { get; private set; }
 
         public MemoryDatabase(
-            AnimalTable AnimalTable
+            AnimalTable AnimalTable,
+            Animal2Table Animal2Table,
+            ClassificationTable ClassificationTable
         )
         {
             this.AnimalTable = AnimalTable;
+            this.Animal2Table = Animal2Table;
+            this.ClassificationTable = ClassificationTable;
         }
 
         public MemoryDatabase(byte[] databaseBinary, bool internString = true, MessagePack.IFormatterResolver formatterResolver = null)
@@ -27,6 +33,8 @@ namespace CGWORLD
         protected override void Init(Dictionary<string, (int offset, int count)> header, int headerOffset, byte[] databaseBinary, MessagePack.IFormatterResolver resolver)
         {
             this.AnimalTable = ExtractTableData<Animal, AnimalTable>(header, headerOffset, databaseBinary, resolver, xs => new AnimalTable(xs));
+            this.Animal2Table = ExtractTableData<Animal2, Animal2Table>(header, headerOffset, databaseBinary, resolver, xs => new Animal2Table(xs));
+            this.ClassificationTable = ExtractTableData<Classification, ClassificationTable>(header, headerOffset, databaseBinary, resolver, xs => new ClassificationTable(xs));
         }
 
         public ImmutableBuilder ToImmutableBuilder()
@@ -38,6 +46,8 @@ namespace CGWORLD
         {
             var builder = new DatabaseBuilder();
             builder.Append(this.AnimalTable.GetRawDataUnsafe());
+            builder.Append(this.Animal2Table.GetRawDataUnsafe());
+            builder.Append(this.ClassificationTable.GetRawDataUnsafe());
             return builder;
         }
     }

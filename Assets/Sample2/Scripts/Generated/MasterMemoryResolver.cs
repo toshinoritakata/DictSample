@@ -43,9 +43,11 @@ namespace CGWORLD
 
         static MasterMemoryResolverGetFormatterHelper()
         {
-            lookup = new global::System.Collections.Generic.Dictionary<Type, int>(1)
+            lookup = new global::System.Collections.Generic.Dictionary<Type, int>(3)
             {
                 {typeof(Animal[]), 0 },
+                {typeof(Animal2[]), 1 },
+                {typeof(Classification[]), 2 },
             };
         }
 
@@ -57,6 +59,8 @@ namespace CGWORLD
             switch (key)
             {
                 case 0: return new MessagePack.Formatters.ArrayFormatter<Animal>();
+                case 1: return new MessagePack.Formatters.ArrayFormatter<Animal2>();
+                case 2: return new MessagePack.Formatters.ArrayFormatter<Classification>();
                 default: return null;
             }
         }
