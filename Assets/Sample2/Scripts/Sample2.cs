@@ -28,7 +28,7 @@ public class Sample2 : MonoBehaviour
                     new Animal(11, "両生類", "クロサンショウウオ", 150)});
         var db = new MemoryDatabase(databaseBuilder.Build());
 
-        // 検索ボタンが押されたらDropBoxで選ばれている条件に従って、動物を表示する
+        // 検索ボタンが押されたらDropdownメニューで選択されている条件の動物を表示する
         _search.onClick.AddListener(() =>
         {
             var cls = db.AnimalTable.FindByClassification(_classSelect.options[_classSelect.value].text);
