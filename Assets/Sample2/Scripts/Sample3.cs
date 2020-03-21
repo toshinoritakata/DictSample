@@ -18,7 +18,7 @@ public class Sample3 : MonoBehaviour
         //　動物データを登録します
         var databaseBuilder = new DatabaseBuilder();
         databaseBuilder.Append((new List<string> {
-            "哺乳類", "鳥類", "爬虫類", "両生類"
+            "哺乳類", "爬虫類", "鳥類", "両生類"
         }).Select((name, index) => new Classification(index, name)));
 
         databaseBuilder.Append(new List<Animal2> {
