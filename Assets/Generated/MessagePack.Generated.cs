@@ -236,7 +236,7 @@ namespace MessagePack.Formatters.CGWORLD
             offset += global::MessagePack.MessagePackBinary.WriteRaw(ref bytes, offset, this.____stringByteKeys[0]);
             offset += MessagePackBinary.WriteInt32(ref bytes, offset, value.Id);
             offset += global::MessagePack.MessagePackBinary.WriteRaw(ref bytes, offset, this.____stringByteKeys[1]);
-            offset += formatterResolver.GetFormatterWithVerify<string>().Serialize(ref bytes, offset, value.Classification, formatterResolver);
+            offset += MessagePackBinary.WriteInt32(ref bytes, offset, value.Classification);
             offset += global::MessagePack.MessagePackBinary.WriteRaw(ref bytes, offset, this.____stringByteKeys[2]);
             offset += formatterResolver.GetFormatterWithVerify<string>().Serialize(ref bytes, offset, value.Name, formatterResolver);
             offset += global::MessagePack.MessagePackBinary.WriteRaw(ref bytes, offset, this.____stringByteKeys[3]);
@@ -259,7 +259,7 @@ namespace MessagePack.Formatters.CGWORLD
             offset += readSize;
 
             var __Id__ = default(int);
-            var __Classification__ = default(string);
+            var __Classification__ = default(int);
             var __Name__ = default(string);
             var __Size__ = default(float);
             var __Url__ = default(string);
@@ -281,7 +281,7 @@ namespace MessagePack.Formatters.CGWORLD
                         __Id__ = MessagePackBinary.ReadInt32(bytes, offset, out readSize);
                         break;
                     case 1:
-                        __Classification__ = formatterResolver.GetFormatterWithVerify<string>().Deserialize(bytes, offset, formatterResolver, out readSize);
+                        __Classification__ = MessagePackBinary.ReadInt32(bytes, offset, out readSize);
                         break;
                     case 2:
                         __Name__ = formatterResolver.GetFormatterWithVerify<string>().Deserialize(bytes, offset, formatterResolver, out readSize);

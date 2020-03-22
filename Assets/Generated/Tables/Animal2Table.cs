@@ -12,14 +12,14 @@ namespace CGWORLD.Tables
         readonly Func<Animal2, int> primaryIndexSelector;
 
         readonly Animal2[] secondaryIndex0;
-        readonly Func<Animal2, string> secondaryIndex0Selector;
+        readonly Func<Animal2, int> secondaryIndex0Selector;
 
         public Animal2Table(Animal2[] sortedData)
             : base(sortedData)
         {
             this.primaryIndexSelector = x => x.Id;
             this.secondaryIndex0Selector = x => x.Classification;
-            this.secondaryIndex0 = CloneAndSortBy(this.secondaryIndex0Selector, System.StringComparer.Ordinal);
+            this.secondaryIndex0 = CloneAndSortBy(this.secondaryIndex0Selector, System.Collections.Generic.Comparer<int>.Default);
         }
 
         public RangeView<Animal2> SortByClassification => new RangeView<Animal2>(secondaryIndex0, 0, secondaryIndex0.Length - 1, true);
@@ -51,19 +51,19 @@ namespace CGWORLD.Tables
             return FindUniqueRangeCore(data, primaryIndexSelector, System.Collections.Generic.Comparer<int>.Default, min, max, ascendant);
         }
 
-        public RangeView<Animal2> FindByClassification(string key)
+        public RangeView<Animal2> FindByClassification(int key)
         {
-            return FindManyCore(secondaryIndex0, secondaryIndex0Selector, System.StringComparer.Ordinal, key);
+            return FindManyCore(secondaryIndex0, secondaryIndex0Selector, System.Collections.Generic.Comparer<int>.Default, key);
         }
 
-        public RangeView<Animal2> FindClosestByClassification(string key, bool selectLower = true)
+        public RangeView<Animal2> FindClosestByClassification(int key, bool selectLower = true)
         {
-            return FindManyClosestCore(secondaryIndex0, secondaryIndex0Selector, System.StringComparer.Ordinal, key, selectLower);
+            return FindManyClosestCore(secondaryIndex0, secondaryIndex0Selector, System.Collections.Generic.Comparer<int>.Default, key, selectLower);
         }
 
-        public RangeView<Animal2> FindRangeByClassification(string min, string max, bool ascendant = true)
+        public RangeView<Animal2> FindRangeByClassification(int min, int max, bool ascendant = true)
         {
-            return FindManyRangeCore(secondaryIndex0, secondaryIndex0Selector, System.StringComparer.Ordinal, min, max, ascendant);
+            return FindManyRangeCore(secondaryIndex0, secondaryIndex0Selector, System.Collections.Generic.Comparer<int>.Default, min, max, ascendant);
         }
 
     }

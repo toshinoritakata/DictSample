@@ -49,4 +49,5 @@
 |両生類|クロサンショウウオ|150|https://s.yimg.jp/i/kids/zukan/photo/animal/amphibians/0001/640_480.jpg|
 
 
-![sample3](https://user-images.githubusercontent.com/529150/77226155-6a9cbc80-6bb9-11ea-9159-efcb10254cfc.gif)
+
+![sample3](https://user-images.githubusercontent.com/529150/77243190-bd728480-6c4a-11ea-9e0a-b3e58b98b2c2.gif)
