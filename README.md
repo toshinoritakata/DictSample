@@ -5,7 +5,7 @@
 
 画像は https://www.pexels.com/　から
 
-![sample1](https://user-images.githubusercontent.com/529150/76914681-5a0ced80-68fe-11ea-946e-f26321e8bae9.gif)
+i![sample1](https://user-images.githubusercontent.com/529150/77245013-a5a4fb80-6c5e-11ea-9bc9-d303522f065d.gif)
 
 # sample2.unity
 ## 動物データをMasterMemoryで検索する
@@ -25,7 +25,7 @@
 |両生類|カメガエル| 50|
 |両生類|クロサンショウウオ| 150|
 
-![DictSample_Sample2](https://user-images.githubusercontent.com/529150/76914105-7f006100-68fc-11ea-9137-d591ce54b7fd.gif)
+![sample2](https://user-images.githubusercontent.com/529150/77245061-06cccf00-6c5f-11ea-9ec7-1fc86e939f4b.gif)
 
 
 # sample3.unity
