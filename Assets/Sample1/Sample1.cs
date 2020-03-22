@@ -13,6 +13,7 @@ public class Sample1 : MonoBehaviour
 
     void Start()
     {
+        // 階層を戻る処理
         _returnBtn.onClick.AddListener(() =>
         {
             if (_currentPath.Count > 1)
@@ -52,7 +53,7 @@ public class Sample1 : MonoBehaviour
             });
         }
 
-        // ディレクトリをボタンとしと表示
+        // JPG画像を表示
         foreach (var file in Directory.GetFiles(path))
         {
             if (Path.GetExtension(file).ToLower() != ".jpg") continue;
