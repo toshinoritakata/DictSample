@@ -45,7 +45,7 @@ public class Sample3 : MonoBehaviour
 
             // GameObjectの子供番号を検索条件として検索を行う
             var res = Enumerable.Range(0, 4)
-                .Where((x, n) => _condition.transform.GetChild(n).GetComponent<Toggle>().isOn)
+                .Where(x => _condition.transform.GetChild(x).GetComponent<Toggle>().isOn)
                 .SelectMany(x => db.Animal2Table.FindByClassification(x));
 
             // 検索結果を表示
