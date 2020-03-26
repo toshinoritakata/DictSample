@@ -22,18 +22,17 @@ public class Sample3 : MonoBehaviour
         }).Select((name, index) => new Classification(index, name)));
 
         databaseBuilder.Append(new List<Animal2> {
-            new Animal2(0, 0, "フクロギツネ", 500, "https://s.yimg.jp/i/kids/zukan/photo/pet/smallanimal/0058/640_480.jpg"),
-            new Animal2(1, 0, "マレーグマ", 1200, "https://s.yimg.jp/i/kids/zukan/photo/animal/mammals/0060/640_480.jpg"),
-            new Animal2(2, 0, "アイアイ", 400, "https://s.yimg.jp/i/kids/zukan/photo/animal/mammals/0029/640_480.jpg"),
-            new Animal2(3, 2, "アオサギ", 930, "https://s.yimg.jp/i/kids/zukan/photo/animal/birds/0022/640_480.jpg"),
-            new Animal2(4, 2, "コノハズク", 200, "https://s.yimg.jp/i/kids/zukan/photo/animal/birds/0089/640_480.jpg"),
-            new Animal2(7, 1, "カミツキガメ", 300, "https://s.yimg.jp/i/kids/zukan/photo/animal/reptiles/0016/640_480.jpg"),
-            new Animal2(6, 1, "ムカシトカゲ", 600, "https://s.yimg.jp/i/kids/zukan/photo/animal/reptiles/0034/640_480.jpg"),
-            new Animal2(5, 2, "セキセイインコ", 180,"https://s.yimg.jp/i/kids/zukan/photo/animal/birds/0084/640_480.jpg"),
-            new Animal2(8, 1, "キングコブラ", 2300, "https://s.yimg.jp/i/kids/zukan/photo/animal/reptiles/0089/640_480.jpg"),
-            new Animal2(9, 3, "ツチガエル", 40, "https://s.yimg.jp/i/kids/zukan/photo/animal/amphibians/0029/640_480.jpg"),
-            new Animal2(10, 3, "カメガエル", 50,"https://s.yimg.jp/i/kids/zukan/photo/animal/amphibians/0016/640_480.jpg"),
-            new Animal2(11, 3, "クロサンショウウオ", 150, "https://s.yimg.jp/i/kids/zukan/photo/animal/amphibians/0001/640_480.jpg")
+            new Animal2(0, 0, "トラ", "https://images.pexels.com/photos/145939/pexels-photo-145939.jpeg"),
+            new Animal2(1, 0, "リス", "https://images.pexels.com/photos/47547/squirrel-animal-cute-rodents-47547.jpeg"),
+            new Animal2(2, 0, "レッサーパンダ", "https://images.pexels.com/photos/145902/pexels-photo-145902.jpeg"),
+            new Animal2(3, 2, "タカ", "https://images.pexels.com/photos/151511/pexels-photo-151511.jpeg"),
+            new Animal2(4, 2, "メンフクロウ", "https://images.pexels.com/photos/106685/pexels-photo-106685.jpeg"),
+            new Animal2(7, 1, "ウミガメ", "https://images.pexels.com/photos/1618606/pexels-photo-1618606.jpeg"),
+            new Animal2(6, 1, "カメレオン", "https://images.pexels.com/photos/62289/yemen-chameleon-chamaeleo-calyptratus-chameleon-reptile-62289.jpeg"),
+            new Animal2(5, 2, "コンゴウインコ", "https://images.pexels.com/photos/40984/animal-ara-macao-beak-bird-40984.jpeg"),
+            new Animal2(8, 1, "アメリカワニ", "https://images.pexels.com/photos/60644/nile-crocodile-crocodylus-niloticus-zoo-60644.jpeg"),
+            new Animal2(9, 3, "アカメアマガエル", "https://images.pexels.com/photos/76957/tree-frog-frog-red-eyed-amphibian-76957.jpeg"),
+            new Animal2(10, 3, "ヤドクガエル", "https://images.pexels.com/photos/638689/pexels-photo-638689.jpeg"),
         });
         var db = new MemoryDatabase(databaseBuilder.Build());
 
@@ -69,7 +68,6 @@ public class Sample3 : MonoBehaviour
 
         if (www.isNetworkError || www.isHttpError)
         {
-            Debug.Log(www.error);
             _image.texture = null;
         }
         else

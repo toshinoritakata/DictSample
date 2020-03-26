@@ -208,8 +208,7 @@ namespace MessagePack.Formatters.CGWORLD
                 { "Id", 0},
                 { "Classification", 1},
                 { "Name", 2},
-                { "Size", 3},
-                { "Url", 4},
+                { "Url", 3},
             };
 
             this.____stringByteKeys = new byte[][]
@@ -217,7 +216,6 @@ namespace MessagePack.Formatters.CGWORLD
                 global::MessagePack.MessagePackBinary.GetEncodedStringBytes("Id"),
                 global::MessagePack.MessagePackBinary.GetEncodedStringBytes("Classification"),
                 global::MessagePack.MessagePackBinary.GetEncodedStringBytes("Name"),
-                global::MessagePack.MessagePackBinary.GetEncodedStringBytes("Size"),
                 global::MessagePack.MessagePackBinary.GetEncodedStringBytes("Url"),
                 
             };
@@ -232,7 +230,7 @@ namespace MessagePack.Formatters.CGWORLD
             }
             
             var startOffset = offset;
-            offset += global::MessagePack.MessagePackBinary.WriteFixedMapHeaderUnsafe(ref bytes, offset, 5);
+            offset += global::MessagePack.MessagePackBinary.WriteFixedMapHeaderUnsafe(ref bytes, offset, 4);
             offset += global::MessagePack.MessagePackBinary.WriteRaw(ref bytes, offset, this.____stringByteKeys[0]);
             offset += MessagePackBinary.WriteInt32(ref bytes, offset, value.Id);
             offset += global::MessagePack.MessagePackBinary.WriteRaw(ref bytes, offset, this.____stringByteKeys[1]);
@@ -240,8 +238,6 @@ namespace MessagePack.Formatters.CGWORLD
             offset += global::MessagePack.MessagePackBinary.WriteRaw(ref bytes, offset, this.____stringByteKeys[2]);
             offset += formatterResolver.GetFormatterWithVerify<string>().Serialize(ref bytes, offset, value.Name, formatterResolver);
             offset += global::MessagePack.MessagePackBinary.WriteRaw(ref bytes, offset, this.____stringByteKeys[3]);
-            offset += MessagePackBinary.WriteSingle(ref bytes, offset, value.Size);
-            offset += global::MessagePack.MessagePackBinary.WriteRaw(ref bytes, offset, this.____stringByteKeys[4]);
             offset += formatterResolver.GetFormatterWithVerify<string>().Serialize(ref bytes, offset, value.Url, formatterResolver);
             return offset - startOffset;
         }
@@ -261,7 +257,6 @@ namespace MessagePack.Formatters.CGWORLD
             var __Id__ = default(int);
             var __Classification__ = default(int);
             var __Name__ = default(string);
-            var __Size__ = default(float);
             var __Url__ = default(string);
 
             for (int i = 0; i < length; i++)
@@ -287,9 +282,6 @@ namespace MessagePack.Formatters.CGWORLD
                         __Name__ = formatterResolver.GetFormatterWithVerify<string>().Deserialize(bytes, offset, formatterResolver, out readSize);
                         break;
                     case 3:
-                        __Size__ = MessagePackBinary.ReadSingle(bytes, offset, out readSize);
-                        break;
-                    case 4:
                         __Url__ = formatterResolver.GetFormatterWithVerify<string>().Deserialize(bytes, offset, formatterResolver, out readSize);
                         break;
                     default:
@@ -303,11 +295,10 @@ namespace MessagePack.Formatters.CGWORLD
 
             readSize = offset - startOffset;
 
-            var ____result = new global::CGWORLD.Animal2(__Id__, __Classification__, __Name__, __Size__, __Url__);
+            var ____result = new global::CGWORLD.Animal2(__Id__, __Classification__, __Name__, __Url__);
             ____result.Id = __Id__;
             ____result.Classification = __Classification__;
             ____result.Name = __Name__;
-            ____result.Size = __Size__;
             ____result.Url = __Url__;
             return ____result;
         }

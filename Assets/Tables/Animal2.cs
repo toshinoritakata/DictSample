@@ -11,14 +11,12 @@ namespace CGWORLD
         [SecondaryKey(0), NonUnique]
         public int Classification { get; set; }
         public string Name { get; set; }
-        public float Size { get; set; }
         public string Url { get; set; }
 
-        public Animal2(int id, int classification, string name, float size, string url)
+        public Animal2(int id, int classification, string name, string url)
         {
             Id = id;
             Name = name;
-            Size = size;
             Classification = classification;
             Url = url;
         }

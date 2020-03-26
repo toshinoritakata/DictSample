@@ -3,9 +3,9 @@
 # sample1.unity
 ## DataフォルダをUIに反映させる
 
-画像は https://www.pexels.com/　から
+画像は https://www.pexels.com/ から
 
-i![sample1](https://user-images.githubusercontent.com/529150/77245013-a5a4fb80-6c5e-11ea-9bc9-d303522f065d.gif)
+![sample1](https://user-images.githubusercontent.com/529150/77245013-a5a4fb80-6c5e-11ea-9bc9-d303522f065d.gif)
 
 # sample2.unity
 ## 動物データをMasterMemoryで検索する
@@ -31,23 +31,28 @@ i![sample1](https://user-images.githubusercontent.com/529150/77245013-a5a4fb80-6
 # sample3.unity
 ## MasterMemoryでOR検索して検索結果を画像で表示する
 
-データはYahoo!きっず図鑑から[https://kids.yahoo.co.jp/zukan/]
+### 分類登録テーブル
+|番号|分類|
+|---|---|
+|0|哺乳類|
+|1|爬虫類|
+|2|鳥類|
+|3|両生類|
 
-|類|名前|大きさ(mm)|画像URL|
-|---|---|---|---|
-|哺乳類|フクロギツネ|500|https://s.yimg.jp/i/kids/zukan/photo/pet/smallanimal/0058/640_480.jpg|
-|哺乳類|マレーグマ|1200|https://s.yimg.jp/i/kids/zukan/photo/animal/mammals/0060/640_480.jpg|
-|哺乳類|アイアイ|400|https://s.yimg.jp/i/kids/zukan/photo/animal/mammals/0029/640_480.jpg|
-|鳥類|アオサギ|930|https://s.yimg.jp/i/kids/zukan/photo/animal/birds/0022/640_480.jpg|
-|鳥類|コノハズク|200|https://s.yimg.jp/i/kids/zukan/photo/animal/birds/0089/640_480.jpg|
-|爬虫類|カミツキガメ|300|https://s.yimg.jp/i/kids/zukan/photo/animal/reptiles/0016/640_480.jpg|
-|爬虫類|ムカシトカゲ|600|https://s.yimg.jp/i/kids/zukan/photo/animal/reptiles/0034/640_480.jpg|
-|鳥類|セキセイインコ|180|https://s.yimg.jp/i/kids/zukan/photo/animal/birds/0084/640_480.jpg|
-|爬虫類|キングコブラ|2300|https://s.yimg.jp/i/kids/zukan/photo/animal/reptiles/0089/640_480.jpg|
-|両生類|ツチガエル|40|https://s.yimg.jp/i/kids/zukan/photo/animal/amphibians/0029/640_480.jpg|
-|両生類|カメガエル|50|https://s.yimg.jp/i/kids/zukan/photo/animal/amphibians/0016/640_480.jpg|
-|両生類|クロサンショウウオ|150|https://s.yimg.jp/i/kids/zukan/photo/animal/amphibians/0001/640_480.jpg|
+### 登録テーブル
+|分類番号|名前|画像URL|
+|---|---|---|
+|0|トラ|https://images.pexels.com/photos/145939/pexels-photo-145939.jpeg|
+|0|リス|https://images.pexels.com/photos/47547/squirrel-animal-cute-rodents-47547.jpeg|
+|0|レッサーパンダ|https://images.pexels.com/photos/145902/pexels-photo-145902.jpeg|
+|2|タカ|https://images.pexels.com/photos/151511/pexels-photo-151511.jpeg|
+|2|メンフクロウ|https://images.pexels.com/photos/106685/pexels-photo-106685.jpeg|
+|1|ウミガメ|https://images.pexels.com/photos/1618606/pexels-photo-1618606.jpeg|
+|1|カメレオン|https://images.pexels.com/photos/62289/yemen-chameleon-chamaeleo-calyptratus-chameleon-reptile-62289.jpeg|
+|2|コンゴウインコ|https://images.pexels.com/photos/40984/animal-ara-macao-beak-bird-40984.jpeg|
+|1|アメリカワニ|https://images.pexels.com/photos/60644/nile-crocodile-crocodylus-niloticus-zoo-60644.jpeg|
+|3|アカメアマガエル|https://images.pexels.com/photos/76957/tree-frog-frog-red-eyed-amphibian-76957.jpeg|
+|3|ヤドクガエル|https://images.pexels.com/photos/638689/pexels-photo-638689.jpeg|
 
 
-
-![sample3](https://user-images.githubusercontent.com/529150/77243190-bd728480-6c4a-11ea-9e0a-b3e58b98b2c2.gif)
+![sample3](https://user-images.githubusercontent.com/529150/77606923-32500200-6f5c-11ea-947d-f11ec051adbf.gif)
